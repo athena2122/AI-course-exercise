@@ -12,13 +12,13 @@ train_data = mnist.train.images
 val_data = mnist.validation.images
 test_data = mnist.test.images
 print("训练集数据大小：",train_data.shape)
-print("一张图片的形状:",train_data.shape[0])
+print("一张图片的特征:",train_data.shape[1])
 #3.获取标签值
 train_labels = mnist.train.labels
 validation_labels = mnist.validation.labels
 test_labels = mnist.test.labels
 print("训练集标签大小：",train_labels.shape)
-print("标签值大小：",train_labels.shape[0])
+print("标签值大小：",train_labels.shape[1])
 x = tf.placeholder(dtype=tf.float32,shape=[None,784])
 y = tf.placeholder(dtype=tf.float32,shape=[None,10])
 #3.构建计算图
