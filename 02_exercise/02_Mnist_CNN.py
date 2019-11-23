@@ -12,13 +12,13 @@ train_data = mnist.train.images
 val_data = mnist.validation.images
 test_data = mnist.test.images
 print("训练集数据大小：",train_data.shape)
-print("一张图片的形状:",train_data.shape[0])
+print("一张图片的特征:",train_data.shape[1])
 #3.获取标签值
 train_labels = mnist.train.labels
 validation_labels = mnist.validation.labels
 test_labels = mnist.test.labels
 print("训练集标签大小：",train_labels.shape)
-print("标签值大小：",train_labels.shape[0])
+print("标签值大小：",train_labels.shape[1])
 x = tf.placeholder(dtype=tf.float32,shape=[None,784])
 y = tf.placeholder(dtype=tf.float32,shape=[None,10])
 x_image = tf.reshape(x,shape = [-1,28,28,1])
@@ -34,7 +34,7 @@ conv1 = tf.layers.conv2d(x_image,6,
 pool1 = tf.layers.max_pooling2d(conv1,
                                     pool_size=(2,2),
                                     strides=(2,2),
-                                    name="avg_pooling1")
+                                    name="max_pooling1")
 #输入：[None,12,12,6] 输出：[NOne,8,8,16]
 conv2 = tf.layers.conv2d(pool1,filters=16,
                          kernel_size=(5,5),
@@ -45,7 +45,7 @@ conv2 = tf.layers.conv2d(pool1,filters=16,
 pool2 = tf.layers.max_pooling2d(conv2,
                                     pool_size=(2,2),
                                     strides=(2,2),
-                                    name="avg_pooling2")
+                                    name="max_pooling2")
 #输入：4*4*16 = 256
 flatten = tf.contrib.layers.flatten(pool2)
 #全连接层 120个神经元
@@ -82,3 +82,4 @@ with tf.Session()as sess:
                 all_test_acc_val.append(acc_val)
             test_acc = np.mean(all_test_acc_val)
             print('[Test ] Step: %d, acc: %4.5f' % (i + 1, test_acc))
+
