@@ -49,9 +49,9 @@ pool2 = tf.layers.max_pooling2d(conv2,
 #输入：4*4*16 = 256
 flatten = tf.contrib.layers.flatten(pool2)
 #全连接层 120个神经元
-fc1 = tf.layers.dense(flatten,120)
+fc1 = tf.layers.dense(flatten,120,tf.nn.relu)
 #全连接层 84个神经元
-fc2 = tf.layers.dense(fc1,84)
+fc2 = tf.layers.dense(fc1,84,tf.nn.relu)
 #输出层
 y_ = tf.layers.dense(fc2,10)
 
