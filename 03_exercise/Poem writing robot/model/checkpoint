@@ -1,0 +1,6 @@
+model_checkpoint_path: "poetry.module-best"
+all_model_checkpoint_paths: "poetry.module-0"
+all_model_checkpoint_paths: "poetry.module-7"
+all_model_checkpoint_paths: "poetry.module-14"
+all_model_checkpoint_paths: "poetry.module-21"
+all_model_checkpoint_paths: "poetry.module-best"
